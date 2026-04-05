@@ -4,7 +4,7 @@ Welcome to **MasterG** 📚
 ## Project Overview  
 **MasterG** is a lightweight, multilingual AI-powered educational platform that generates curriculum-aligned content in 22+ Indian languages. Designed for **100% offline operation** with **zero reliance on cloud services**, MasterG runs efficiently on low-resource devices (4-8GB RAM) without requiring internet connectivity.
 
-**🏆 MasterG Won First Place at Eduthon Techfest IIT B 29th Edition 🎉**
+**🏆 MasterG: Your personalsed Lightweight Growth Companion 🎉**
 
 ## Tech Stack  
 
@@ -19,6 +19,8 @@ Welcome to **MasterG** 📚
 
 ### **Backend**  
 - **Node.js + Express** with TypeScript  
+- **PHP** (Standalone module processing)
+- **Java** (Text Analysis microservices)
 - **MongoDB** (Local session management)  
 - **ChromaDB** (Local vector embeddings)  
 - **Tesseract.js** (OCR)  
@@ -95,8 +97,6 @@ Let's keep the spirit of open source alive!
 
 ## Contact  
 If you have any inquiries or suggestions, please reach out:  
-- **Email:** [ayush421301@gmail.com](mailto:ayush421301@gmail.com)  
-- **X (Twitter):** [ayuxy027](https://x.com/ayuxy027)  
-- **GitHub:** [ayuxy027](https://github.com/ayuxy027)  
+- **GitHub:** [heerr2005](https://github.com/heerr2005)  
 
 ---

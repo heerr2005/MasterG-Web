@@ -37,7 +37,7 @@ TopicProgressSchema.index({ userId: 1, sessionId: 1, topicId: 1 }, { unique: tru
 TopicProgressSchema.index({ sessionId: 1, documentId: 1 });
 TopicProgressSchema.index({ userId: 1, sessionId: 1 });
 
-TopicProgressSchema.pre("save", function (next) {
+TopicProgressSchema.pre("save", function (next: any) {
     this.updatedAt = new Date();
 
     // Auto-set timestamps based on status

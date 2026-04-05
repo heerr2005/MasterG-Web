@@ -47,7 +47,7 @@ DocumentAnalysisSchema.index({ sessionId: 1, documentId: 1 }, { unique: true });
 DocumentAnalysisSchema.index({ userId: 1, sessionId: 1 });
 DocumentAnalysisSchema.index({ documentId: 1 });
 
-DocumentAnalysisSchema.pre("save", function (next) {
+DocumentAnalysisSchema.pre("save", function (next: any) {
     this.updatedAt = new Date();
     next();
 });

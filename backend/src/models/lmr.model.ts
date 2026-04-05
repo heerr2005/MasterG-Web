@@ -38,7 +38,7 @@ const LMRHistorySchema: Schema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-LMRHistorySchema.pre("save", function (next) {
+LMRHistorySchema.pre("save", function (next: any) {
   this.updatedAt = new Date();
   next();
 });

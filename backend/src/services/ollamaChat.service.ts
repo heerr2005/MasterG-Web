@@ -588,7 +588,7 @@ Keywords:`;
       /^[qwerty]{5,}$/i, // keyboard row
       /^[asdfgh]{5,}$/i, // keyboard row
       /^[zxcvbn]{5,}$/i, // keyboard row
-      /^[a-z]{2,3}\1+$/i, // repeated pattern like "asdasdasd"
+      /^([a-z]{2,3})\1+$/i, // repeated pattern like "asdasdasd"
     ];
 
     if (gibberishPatterns.some((pattern) => pattern.test(trimmed))) {

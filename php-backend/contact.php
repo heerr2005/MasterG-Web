@@ -1,0 +1,142 @@
+<?php
+// PHP Backend Logic
+$message_status = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+    
+    // Demonstrate basic file writing logic for PHP backend validation
+    $logfile = "feedback_log.txt";
+    $log_entry = "[" . date("Y-m-d H:i:s") . "] Name: $name | Email: $email | Msg: $message\n";
+    file_put_contents($logfile, $log_entry, FILE_APPEND);
+    
+    $message_status = "success";
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Feedback - MasterG</title>
+    <!-- Use Tailwind CDN to perfectly match MasterG styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-repeat: repeat;
+            background-color: #fafafa;
+        }
+
+        /* Abstract Pattern Background similar to MasterG */
+        .bg-pattern {
+            background-color: #fff;
+            background-image: 
+                radial-gradient(#f97316 0.5px, transparent 0.5px),
+                radial-gradient(#f97316 0.5px, #fff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.05;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800 antialiased pt-24 pb-12">
+    <!-- Background pattern -->
+    <div class="bg-pattern"></div>
+
+    <!-- MasterG Navbar Clone (Pure HTML/CSS) -->
+    <header class="fixed top-6 left-1/2 transform -translate-x-1/2 flex items-center justify-between px-6 py-4 shadow-lg max-w-5xl rounded-full w-[95%] bg-white/80 backdrop-blur-md border border-orange-200/60 z-50 transition-all">
+        <a href="/" class="text-xl md:text-2xl font-bold text-orange-500">
+            MasterG
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-orange-500 text-sm font-medium">
+            <!-- Simulated Nav Links -->
+            <a href="#" class="hover:text-orange-600 flex items-center gap-2 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V2H8m7 9v2M2 12h2m16 0h2M9 11v2"></path></svg>
+                Chat
+            </a>
+            <a href="#" class="hover:text-orange-600 flex items-center gap-2 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                LMR
+            </a>
+            <a href="#" class="hover:text-orange-600 flex items-center gap-2 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"></path></svg>
+                Whiteboard
+            </a>
+            <a href="#" class="flex items-center gap-2 transition-colors font-bold text-orange-600 border-b-2 border-orange-600 pb-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                Feedback
+            </a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <a href="#" class="hidden md:flex bg-orange-400 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-orange-500 transition-all shadow-md">
+                Start Learning
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Container matching MasterG app bounds -->
+    <main class="w-[95%] max-w-5xl mx-auto rounded-3xl mt-8">
+        
+        <div class="px-4 py-8">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl md:text-5xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent inline-block mb-4">
+                    Teacher Feedback & Analysis
+                </h1>
+                <p class="text-gray-500 font-medium max-w-lg mx-auto text-sm md:text-base">
+                    This standalone module utilizes raw HTML, CSS, and PHP to demonstrate core web technology structure without the React overhead.
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-white rounded-2xl p-6 md:p-10 shadow-xl border border-gray-100">
+                
+                <?php if($message_status == "success"): ?>
+                <div class="bg-green-50 text-green-700 border border-green-200 px-4 py-3 rounded-xl mb-6 font-medium text-sm text-center">
+                    <svg class="w-5 h-5 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    Simulation successful. Your feedback structure was processed flawlessly!
+                </div>
+                <?php endif; ?>
+
+                <form method="POST" action="">
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Teacher Name</label>
+                            <input type="text" name="name" required placeholder="Professor John Doe" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all outline-none bg-gray-50 focus:bg-white text-gray-800">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                            <input type="email" name="email" required placeholder="john@university.edu" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all outline-none bg-gray-50 focus:bg-white text-gray-800">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Curriculum Feedback</label>
+                            <textarea rows="5" name="message" required placeholder="How well did MasterG perform in the classroom?" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all outline-none bg-gray-50 focus:bg-white text-gray-800 resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <button type="submit" class="w-full bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-orange-200 hover:-translate-y-1 transition-all duration-200 flex justify-center items-center gap-2">
+                            <span>Submit Feedback Form</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -48,7 +48,7 @@ Welcome to **MasterG** 📚
 ## Setup and Installation  
 1. **Clone this repository:**  
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME_HERE/MasterG.git
+   git clone https://github.com/heerr2005/MasterG-Web.git
    ```
 2. **Install frontend dependencies:**  
    ```bash

@@ -163,7 +163,7 @@ const MinimizedNavbar: React.FC<MinimizedNavbarProps> = ({ isExpanded, onToggle 
             {/* Footer */}
             <div className="px-4 py-3 border-t border-orange-100/80 bg-gradient-to-r from-white to-orange-50/60 space-y-2">
               <a
-                href="https://github.com/YOUR_GITHUB_USERNAME_HERE/MasterG"
+                href="https://github.com/heerr2005/MasterG-Web"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-full h-10 text-orange-600 hover:text-orange-700 hover:bg-orange-50/80 rounded-xl transition-all"

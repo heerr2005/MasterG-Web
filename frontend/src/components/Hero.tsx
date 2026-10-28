@@ -1,6 +1,200 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const CreatorsSection = () => {
+    return (
+        <section
+            style={{
+                background: 'linear-gradient(135deg, #fffbeb 0%, #ffffff 50%, #fff7ed 100%)',
+                padding: '80px 24px',
+            }}
+        >
+            <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+                {/* Section label */}
+                <span style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    background: 'linear-gradient(135deg, #f97316, #fb923c)',
+                    color: '#ffffff',
+                    borderRadius: '999px',
+                    padding: '6px 20px',
+                    fontSize: '13px',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    marginBottom: '28px',
+                    boxShadow: '0 4px 14px rgba(249,115,22,0.35)',
+                }}>
+                    <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                    </svg>
+                    Meet the Team
+                </span>
+
+                {/* Heading */}
+                <h2 style={{
+                    fontSize: 'clamp(2rem, 5vw, 3.25rem)',
+                    fontWeight: 800,
+                    color: '#1f2937',
+                    lineHeight: 1.15,
+                    marginBottom: '12px',
+                    letterSpacing: '-0.04em',
+                }}>
+                    Hello,{' '}
+                    <span style={{
+                        background: 'linear-gradient(135deg, #ea580c, #f97316, #fb923c)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                    }}>
+                        Judges!
+                    </span>
+                </h2>
+
+                <p style={{
+                    fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
+                    color: '#6b7280',
+                    fontWeight: 500,
+                    marginBottom: '52px',
+                    letterSpacing: '-0.01em',
+                }}>
+                    We are the <strong style={{ color: '#f97316', fontWeight: 700 }}>Creators of MasterG</strong>
+                </p>
+
+                {/* Framed Photo */}
+                <div style={{ display: 'inline-block', position: 'relative' }}>
+
+                    {/* Outer glow ring */}
+                    <div style={{
+                        position: 'absolute',
+                        inset: '-6px',
+                        borderRadius: '28px',
+                        background: 'linear-gradient(135deg, #f97316, #fb923c, #fdba74, #f97316)',
+                        backgroundSize: '300% 300%',
+                        animation: 'gradientShift 4s ease infinite',
+                        zIndex: 0,
+                        filter: 'blur(2px)',
+                    }} />
+
+                    {/* Frame border */}
+                    <div style={{
+                        position: 'relative',
+                        zIndex: 1,
+                        padding: '6px',
+                        borderRadius: '24px',
+                        background: 'linear-gradient(135deg, #f97316, #fb923c, #fed7aa, #fb923c, #f97316)',
+                        backgroundSize: '200% 200%',
+                        animation: 'gradientShift 4s ease infinite',
+                        boxShadow: '0 20px 60px rgba(249,115,22,0.4), 0 8px 24px rgba(249,115,22,0.25), inset 0 1px 0 rgba(255,255,255,0.3)',
+                    }}>
+                        {/* Inner white mat */}
+                        <div style={{
+                            padding: '10px',
+                            borderRadius: '20px',
+                            background: '#ffffff',
+                        }}>
+                            {/* Photo */}
+                            <div style={{
+                                position: 'relative',
+                                borderRadius: '14px',
+                                overflow: 'hidden',
+                                width: 'clamp(280px, 55vw, 520px)',
+                                aspectRatio: '3/4',
+                                maxHeight: '640px',
+                            }}>
+                                <img
+                                    src="/creators.jpg"
+                                    alt="MasterG Creators"
+                                    draggable={false}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'center top',
+                                        display: 'block',
+                                        userSelect: 'none',
+                                    }}
+                                    onDragStart={(e) => e.preventDefault()}
+                                />
+                                {/* Subtle vignette overlay */}
+                                <div style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    background: 'linear-gradient(to top, rgba(249,115,22,0.12) 0%, transparent 40%)',
+                                    pointerEvents: 'none',
+                                }} />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Decorative corner accents */}
+                    {[
+                        { top: '-18px', left: '-18px', transform: 'rotate(0deg)' },
+                        { top: '-18px', right: '-18px', transform: 'rotate(90deg)' },
+                        { bottom: '-18px', right: '-18px', transform: 'rotate(180deg)' },
+                        { bottom: '-18px', left: '-18px', transform: 'rotate(270deg)' },
+                    ].map((pos, i) => (
+                        <div key={i} style={{
+                            position: 'absolute',
+                            width: '36px',
+                            height: '36px',
+                            zIndex: 2,
+                            ...pos,
+                        }}>
+                            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 32 L4 6 Q4 4 6 4 L32 4" stroke="#f97316" strokeWidth="3.5" strokeLinecap="round" fill="none" />
+                                <circle cx="4" cy="4" r="3" fill="#fb923c" />
+                            </svg>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Caption below frame */}
+                <div style={{
+                    marginTop: '40px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '10px',
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                    }}>
+                        <div style={{ height: '1px', width: '48px', background: 'linear-gradient(to right, transparent, #fb923c)' }} />
+                        <span style={{
+                            fontSize: '13px',
+                            fontWeight: 600,
+                            color: '#f97316',
+                            letterSpacing: '0.12em',
+                            textTransform: 'uppercase',
+                        }}>MasterG — 2025</span>
+                        <div style={{ height: '1px', width: '48px', background: 'linear-gradient(to left, transparent, #fb923c)' }} />
+                    </div>
+                    <p style={{
+                        fontSize: '15px',
+                        color: '#9ca3af',
+                        fontWeight: 400,
+                        fontStyle: 'italic',
+                    }}>
+                        Building the future of AI-powered education in India 🇮🇳
+                    </p>
+                </div>
+            </div>
+
+            <style>{`
+                @keyframes gradientShift {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+            `}</style>
+        </section>
+    );
+};
+
 const Avatar = ({ src, alt }: { src: string; alt: string }) => {
     const [imageError, setImageError] = useState(false);
 
@@ -197,6 +391,7 @@ const Landing = () => {
                 </div>
             </div>
             <Herobox />
+            <CreatorsSection />
         </div>
     );
 };
